@@ -1,12 +1,12 @@
 package tests
 
-import common.RANDOM_CALENDAR_URL
 import common.WEBDRIVER_URL_CONFIG
 import org.apache.logging.log4j.LogManager
 import org.junit.jupiter.api.Test
 import org.openqa.selenium.firefox.FirefoxDriver
 import org.openqa.selenium.firefox.FirefoxOptions
 import org.openqa.selenium.remote.RemoteWebDriver
+import pages.RandomCalendar
 import java.net.URL
 
 
@@ -29,9 +29,15 @@ class CalendarTests {
         }
     }
 
+    private val randomCalendar by lazy { RandomCalendar(driver) }
+
     @Test
     fun testAmountOfDates() {
-        driver.get(RANDOM_CALENDAR_URL)
+        randomCalendar.run {
+            load()
+            setTotalOfDates(4u)
+            getDates()
+        }
         driver.quit()
     }
 }
