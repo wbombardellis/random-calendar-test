@@ -1,0 +1,15 @@
+version: "2.0"
+services:
+  webdriver:
+    image: selenium/standalone-firefox:latest
+    ports:
+      - 4444:4444
+      - 7900:7900
+    shm_size: 2g
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - webdriver
+    command: mvn test -Dcom.wbombardellis.webdriver=http://webdriver:4444
