@@ -44,6 +44,7 @@ class CalendarTests {
         val n = 4u
         val startDate = LocalDate.of(2024, Month.JANUARY, 5)
         val endDate = LocalDate.of(2025, Month.NOVEMBER, 25)
+        logger.info("Started test for amount of dates ($n dates between $startDate and $endDate")
 
         randomCalendar.run {
             load()
@@ -57,5 +58,6 @@ class CalendarTests {
                 Assertions.assertEquals(endDate, end)
             }
         }
+        logger.info("Finished test for amount of dates ($n dates between $startDate and $endDate")
     }
 }

@@ -1,13 +1,9 @@
 package pages
 
-import common.WEBDRIVER_URL_CONFIG
 import common.wait
 import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
-import org.openqa.selenium.WebElement
 import org.openqa.selenium.support.ui.Select
-import org.openqa.selenium.support.ui.WebDriverWait
-import java.time.Duration
 import java.time.LocalDate
 
 const val RANDOM_CALENDAR_URL = "https://www.random.org/calendar-dates/"
